@@ -14,3 +14,20 @@ document.querySelectorAll('#nav-menu a').forEach(link => {
         hamburger.classList.remove('active');
     });
 });
+
+// FAQ Accordion
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+        // Fechar outros itens
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+        // Toggle do item atual
+        item.classList.toggle('active');
+    });
+});
